@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://blbm8tq1lq3i1"]
+
+[ext_resource type="PackedScene" uid="uid://bwxcdrfxj1vic" path="res://Levels/Terrain.tscn" id="1_bfcux"]
+[ext_resource type="PackedScene" uid="uid://c0ck5dhdjafr2" path="res://Characters/player.tscn" id="3_4jyse"]
+[ext_resource type="PackedScene" uid="uid://ckbl6cm5c6iut" path="res://main_menu.tscn" id="5_jxvi6"]
+[ext_resource type="PackedScene" uid="uid://dh8d4w10roy0u" path="res://Characters/Enemies/Snail/snail.tscn" id="5_xqfyk"]
+[ext_resource type="PackedScene" uid="uid://oxxkubjwxc0s" path="res://UI/health_changed_manager.tscn" id="6_iepsf"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Level1" type="Node2D" parent="."]
+
+[node name="Terrain" parent="Level1" instance=ExtResource("1_bfcux")]
+position = Vector2(0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Level1/Terrain"]
+position = Vector2(2.08165e-12, 155)
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.17
+drag_top_margin = 0.15
+drag_right_margin = 0.17
+
+[node name="Player" parent="Level1" instance=ExtResource("3_4jyse")]
+position = Vector2(2.08165e-12, 155)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level1/Player"]
+remote_path = NodePath("../../Terrain/Camera2D")
+
+[node name="Snail" parent="Level1" instance=ExtResource("5_xqfyk")]
+position = Vector2(226, 159)
+
+[node name="HealthChangedManager" parent="Level1" instance=ExtResource("6_iepsf")]
+
+[node name="Snail2" parent="Level1" instance=ExtResource("5_xqfyk")]
+position = Vector2(805, 89)
+
+[node name="Snail3" parent="Level1" instance=ExtResource("5_xqfyk")]
+position = Vector2(900, -232)
+
+[node name="Snail4" parent="Level1" instance=ExtResource("5_xqfyk")]
+position = Vector2(1466, -814)
+
+[node name="Snail5" parent="Level1" instance=ExtResource("5_xqfyk")]
+position = Vector2(915, -617)
+
+[node name="Snail6" parent="Level1" instance=ExtResource("5_xqfyk")]
+position = Vector2(197, -381)
+
+[node name="MainMenu" parent="." instance=ExtResource("5_jxvi6")]
+visible = false
