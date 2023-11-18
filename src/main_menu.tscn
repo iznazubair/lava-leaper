@@ -9,22 +9,33 @@ script = ExtResource("1_7mxnb")
 [node name="StartScreen" type="Node2D" parent="."]
 
 [node name="Button" type="Button" parent="StartScreen"]
-offset_left = 36.0
-offset_top = 139.0
-offset_right = 114.0
-offset_bottom = 174.0
+offset_left = -180.0
+offset_top = 15.0
+offset_right = -61.0
+offset_bottom = 67.0
 
 [node name="Sprite2D" type="Sprite2D" parent="StartScreen/Button"]
-position = Vector2(38, 18)
-scale = Vector2(1.18182, 0.875)
+position = Vector2(59, 25.75)
+scale = Vector2(1.81818, 1.2625)
 texture = ExtResource("2_dogud")
 
 [node name="Label" type="Label" parent="StartScreen/Button"]
 layout_mode = 0
-offset_right = 76.0
-offset_bottom = 36.0
+offset_right = 119.0
+offset_bottom = 51.0
 text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="StartScreen"]
+offset_left = -217.0
+offset_top = 93.0
+offset_right = -10.0
+offset_bottom = 223.0
+text = "Game keys:
+'A' : forward move
+'B': backward move
+'W': jump and double jump
+'I': attack"
 
 [connection signal="pressed" from="StartScreen/Button" to="." method="_on_button_pressed"]
