@@ -15,6 +15,7 @@ position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Level1/Terrain"]
 position = Vector2(2.08165e-12, 155)
+offset = Vector2(100, -200)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -30,24 +31,24 @@ position = Vector2(2.08165e-12, 155)
 remote_path = NodePath("../../Terrain/Camera2D")
 
 [node name="Snail" parent="Level1" instance=ExtResource("5_xqfyk")]
-position = Vector2(226, 159)
+position = Vector2(138, 164)
 
 [node name="HealthChangedManager" parent="Level1" instance=ExtResource("6_iepsf")]
 
 [node name="Snail2" parent="Level1" instance=ExtResource("5_xqfyk")]
-position = Vector2(805, 89)
+position = Vector2(1024, -28)
 
 [node name="Snail3" parent="Level1" instance=ExtResource("5_xqfyk")]
-position = Vector2(900, -232)
+position = Vector2(258, -812)
 
 [node name="Snail4" parent="Level1" instance=ExtResource("5_xqfyk")]
-position = Vector2(1466, -814)
+position = Vector2(558, -254)
 
 [node name="Snail5" parent="Level1" instance=ExtResource("5_xqfyk")]
-position = Vector2(915, -617)
+position = Vector2(967, -541)
 
 [node name="Snail6" parent="Level1" instance=ExtResource("5_xqfyk")]
-position = Vector2(197, -381)
+position = Vector2(182, -397)
 
 [node name="MainMenu" parent="." instance=ExtResource("5_jxvi6")]
 visible = false
