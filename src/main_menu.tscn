@@ -37,8 +37,8 @@ stream = ExtResource("2_u4tfq")
 show_behind_parent = true
 offset_left = -37.0
 offset_top = -39.0
-offset_right = 1307.0
-offset_bottom = 913.0
+offset_right = 1521.0
+offset_bottom = 1012.0
 texture = SubResource("AnimatedTexture_h5xlh")
 
 [node name="StartButton" type="Button" parent="StartScreen"]
@@ -47,9 +47,9 @@ anchor_left = -0.044
 anchor_top = -0.006
 anchor_right = 0.046
 anchor_bottom = 0.012
-offset_left = 537.0
+offset_left = 671.0
 offset_top = 606.0
-offset_right = 656.0
+offset_right = 790.0
 offset_bottom = 658.0
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -77,9 +77,9 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="StartScreen"]
-offset_left = 332.0
+offset_left = 461.0
 offset_top = 127.0
-offset_right = 898.0
+offset_right = 1027.0
 offset_bottom = 240.0
 theme_override_colors/font_color = Color(0.882353, 0.329412, 0.290196, 1)
 theme_override_colors/font_shadow_color = Color(0.117647, 0.380392, 0.435294, 1)
@@ -90,17 +90,17 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="StartScreen"]
 offset_left = 31.0
-offset_top = 532.0
+offset_top = 593.0
 offset_right = 418.0
-offset_bottom = 757.0
+offset_bottom = 818.0
 theme_override_colors/font_color = Color(0.901961, 0.792157, 0.8, 1)
 theme_override_colors/font_shadow_color = Color(0.384314, 0.356863, 0.545098, 1)
 theme_override_font_sizes/font_size = 30
 text = "Game keys:
 'A' : forward move
 'B': backward move
-'W': jump and double jump
-'I': attack"
+'K': jump and double jump
+'O': attack"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_StartButton_pressed"]
