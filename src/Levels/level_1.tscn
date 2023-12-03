@@ -62,5 +62,10 @@ stream = ExtResource("7_ntveu")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="Level1"]
 stream = ExtResource("8_5uusf")
+[node name="key" type="Area2D" parent="Level1"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level1/key"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/key"]
 
 [node name="MainMenu" parent="." instance=ExtResource("5_jxvi6")]
