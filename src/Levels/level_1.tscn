@@ -57,3 +57,9 @@ position = Vector2(182, -397)
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_5uusf")
+
+[node name="Level1@key" type="Area2D" parent="."]
+
+[node name="Level1@key@AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Level1@key@CollisionShape2D" type="CollisionShape2D" parent="."]

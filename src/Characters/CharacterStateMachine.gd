@@ -47,7 +47,7 @@ func switch_states(new_state : State):
 	# set current state to the new state (passed as argument)
 	current_state = new_state
 	
-	# run new state's on entry logic
+	# run new state's 'on entry' logic
 	current_state.on_enter()
 
 func _input(event : InputEvent):

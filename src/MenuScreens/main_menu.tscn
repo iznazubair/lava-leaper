@@ -36,8 +36,8 @@ stream = ExtResource("2_u4tfq")
 show_behind_parent = true
 offset_left = -37.0
 offset_top = -39.0
-offset_right = 1307.0
-offset_bottom = 913.0
+offset_right = 1510.0
+offset_bottom = 1016.0
 texture = SubResource("AnimatedTexture_h5xlh")
 
 [node name="StartButton" type="Button" parent="StartScreen"]
@@ -46,10 +46,10 @@ anchor_left = -0.044
 anchor_top = -0.006
 anchor_right = 0.046
 anchor_bottom = 0.012
-offset_left = 537.0
-offset_top = 606.0
-offset_right = 656.0
-offset_bottom = 658.0
+offset_left = 661.0
+offset_top = 652.0
+offset_right = 780.0
+offset_bottom = 704.0
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -76,25 +76,25 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="StartScreen"]
-offset_left = 332.0
-offset_top = 127.0
-offset_right = 898.0
-offset_bottom = 240.0
+offset_left = 432.0
+offset_top = 104.0
+offset_right = 1040.0
+offset_bottom = 255.0
 theme_override_colors/font_color = Color(0.882353, 0.329412, 0.290196, 1)
 theme_override_colors/font_shadow_color = Color(0.117647, 0.380392, 0.435294, 1)
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 90
 text = "Lava Leaper"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="StartScreen"]
-offset_left = 44.0
-offset_top = 515.0
-offset_right = 431.0
-offset_bottom = 785.0
+offset_left = 30.0
+offset_top = 632.0
+offset_right = 471.0
+offset_bottom = 944.0
 theme_override_colors/font_color = Color(0.901961, 0.792157, 0.8, 1)
 theme_override_colors/font_shadow_color = Color(0.384314, 0.356863, 0.545098, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "Game Keys:
 'A' : backward move
 'D': forward move
