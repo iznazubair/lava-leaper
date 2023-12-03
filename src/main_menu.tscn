@@ -89,18 +89,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="StartScreen"]
-offset_left = 31.0
-offset_top = 593.0
-offset_right = 418.0
-offset_bottom = 818.0
+offset_left = 40.0
+offset_top = 564.0
+offset_right = 427.0
+offset_bottom = 834.0
 theme_override_colors/font_color = Color(0.901961, 0.792157, 0.8, 1)
 theme_override_colors/font_shadow_color = Color(0.384314, 0.356863, 0.545098, 1)
 theme_override_font_sizes/font_size = 30
 text = "Game keys:
-'A' : forward move
-'B': backward move
+'A' : left move
+'D': right move
 'K': jump and double jump
-'O': attack"
+'O': attack
+'left + right': wall climb"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_StartButton_pressed"]
