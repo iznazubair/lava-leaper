@@ -2,7 +2,7 @@ extends State
 
 class_name GroundState
 
-@export var jump_velocity : float = -270.0
+@export var jump_velocity : float = -300.0
 @export var air_state : State
 @export var jump_animation : String = "jump"
 @export var attack_state : State
@@ -13,12 +13,13 @@ class_name GroundState
 func state_process(delta):
 	if(!character.is_on_floor() && buffer_timer.is_stopped()):
 		next_state = air_state
-		
+
 func state_input(event : InputEvent):
 	if(event.is_action_pressed("jump")):
 		jump()
 	if(event.is_action_pressed("attack")):
 		attack()
+
 
 # JUMP function
 func jump():
