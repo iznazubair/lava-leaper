@@ -11,18 +11,20 @@ config_version=5
 [application]
 
 config/name="Lava Leaper"
-run/main_scene="res://Levels/level_1.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*res://signal_bus.gd"
+MainBus="*res://main_bus.gd"
 
 [display]
 
 window/size/viewport_width=1500
 window/size/viewport_height=1000
+window/stretch/mode="viewport"
 window/stretch/scale=1.25
 
 [input]
@@ -53,6 +55,7 @@ attack={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Walls/Platforms"
 
 [rendering]
 

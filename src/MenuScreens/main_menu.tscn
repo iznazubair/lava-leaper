@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://ckbl6cm5c6iut"]
+
+[ext_resource type="Script" path="res://MenuScreens/MainMenu.gd" id="1_cqail"]
+[ext_resource type="Texture2D" uid="uid://ddsj8wav8jcr1" path="res://Art/Legacy-Fantasy - High Forest 2.3 2/Buttons/startButton.jpeg" id="2_dogud"]
+[ext_resource type="Texture2D" uid="uid://1yb3rjxsj22g" path="res://Background Images/1.jpg" id="2_p0yr5"]
+[ext_resource type="AudioStream" uid="uid://d2try3dxdmkm4" path="res://Background Music/Mushroom Theme.mp3" id="2_u4tfq"]
+[ext_resource type="Texture2D" uid="uid://cm8nqahgd3uxr" path="res://Background Images/2.jpg" id="3_fyci6"]
+[ext_resource type="Texture2D" uid="uid://0cdos45r56ou" path="res://Background Images/3.jpg" id="4_u8vmb"]
+[ext_resource type="Texture2D" uid="uid://cqnsxh0dyqr8p" path="res://Background Images/4.jpg" id="5_mi022"]
+[ext_resource type="Texture2D" uid="uid://cr41nsfc18le3" path="res://Background Images/5.jpg" id="6_h8hpv"]
+[ext_resource type="Texture2D" uid="uid://cxvi6aqecwoc2" path="res://Background Images/6.jpg" id="7_q1p3j"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_h5xlh"]
+frames = 6
+frame_0/texture = ExtResource("2_p0yr5")
+frame_1/texture = ExtResource("3_fyci6")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_u8vmb")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_mi022")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_h8hpv")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("7_q1p3j")
+frame_5/duration = 1.0
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_cqail")
+
+[node name="StartScreen" type="Node2D" parent="."]
+
+[node name="StartScreenMusic" type="AudioStreamPlayer2D" parent="StartScreen"]
+stream = ExtResource("2_u4tfq")
+
+[node name="TextureRect" type="TextureRect" parent="StartScreen"]
+show_behind_parent = true
+offset_left = -37.0
+offset_top = -39.0
+offset_right = 1307.0
+offset_bottom = 913.0
+texture = SubResource("AnimatedTexture_h5xlh")
+
+[node name="StartButton" type="Button" parent="StartScreen"]
+anchors_preset = -1
+anchor_left = -0.044
+anchor_top = -0.006
+anchor_right = 0.046
+anchor_bottom = 0.012
+offset_left = 537.0
+offset_top = 606.0
+offset_right = 656.0
+offset_bottom = 658.0
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StartScreen/StartButton"]
+position = Vector2(59, 32)
+scale = Vector2(2.93939, 2.1875)
+texture = ExtResource("2_dogud")
+
+[node name="Label3" type="Label" parent="StartScreen/StartButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.403714
+anchor_top = -0.0399405
+anchor_right = 0.504381
+anchor_bottom = -0.0269405
+offset_left = -57.042
+offset_top = 3.07691
+offset_right = 61.9579
+offset_bottom = 54.0769
+theme_override_font_sizes/font_size = 20
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="StartScreen"]
+offset_left = 332.0
+offset_top = 127.0
+offset_right = 898.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0.882353, 0.329412, 0.290196, 1)
+theme_override_colors/font_shadow_color = Color(0.117647, 0.380392, 0.435294, 1)
+theme_override_font_sizes/font_size = 80
+text = "Lava Leaper"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="StartScreen"]
+offset_left = 44.0
+offset_top = 515.0
+offset_right = 431.0
+offset_bottom = 785.0
+theme_override_colors/font_color = Color(0.901961, 0.792157, 0.8, 1)
+theme_override_colors/font_shadow_color = Color(0.384314, 0.356863, 0.545098, 1)
+theme_override_font_sizes/font_size = 30
+text = "Game Keys:
+'A' : backward move
+'D': forward move
+'K': jump and double jump
+'O': attack
+'left & right': wall climb"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_StartButton_pressed"]
