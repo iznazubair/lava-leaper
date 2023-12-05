@@ -492,6 +492,7 @@ graph_offset = Vector2(25.7998, -30.1801)
 size = Vector2(26, 49)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 2
 position = Vector2(7, -4)
 collision_layer = 2
 script = ExtResource("1_1ljid")

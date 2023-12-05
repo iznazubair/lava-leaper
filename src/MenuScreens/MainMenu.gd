@@ -2,8 +2,8 @@ extends CanvasLayer
 
 class_name main_menu
 
-@onready var StartScreen = $StartScreen
-@onready var StartScreenMusic = $StartScreen/StartScreenMusic
+@onready var StartScreen : Node2D = $StartScreen
+@onready var StartScreenMusic : AudioStreamPlayer2D = $StartScreen/StartScreenMusic
 
 func _ready():
 	StartScreenMusic.play()

@@ -13,6 +13,7 @@ var starting_pos : Vector2 = Vector2(0,155)
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
+var coins = 0
 
 
 signal facing_direction_changed(facing_right : bool)
@@ -57,3 +58,7 @@ func update_facing_direction():
 		$Wallchecker.rotation_degrees = -90
 
 	emit_signal("facing_direction_changed", !sprite.flip_h)
+	
+func add_coin():
+	coins += 1
+	print('I have ', coins);

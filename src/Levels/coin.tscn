@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://lvip4ulojh3d"]
+
+[ext_resource type="Script" path="res://Levels/coin.gd" id="1_6xbld"]
+[ext_resource type="Texture2D" uid="uid://cj7to54668vpp" path="res://Art/coin/gold_1.png" id="2_bj86i"]
+[ext_resource type="Texture2D" uid="uid://d1iov5vhwgak7" path="res://Art/coin/gold_2.png" id="3_7ayo7"]
+[ext_resource type="Texture2D" uid="uid://daiqaf6qknyuc" path="res://Art/coin/gold_3.png" id="4_0a663"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yyyb1"]
+radius = 13.1529
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jy7yw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bj86i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7ayo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0a663")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_b2eu4"]
+resource_name = "bounce"
+length = 0.9
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.19209e-07, 5.96046e-08), Vector2(0, -30), Vector2(0, -15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8kh6v"]
+_data = {
+"bounce": SubResource("Animation_b2eu4")
+}
+
+[node name="coin" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_6xbld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yyyb1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.19209e-07, 5.96046e-08)
+scale = Vector2(0.261905, 0.267857)
+sprite_frames = SubResource("SpriteFrames_jy7yw")
+animation = &"spin"
+autoplay = "spin"
+frame_progress = 0.67742
+speed_scale = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8kh6v")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_coin_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
