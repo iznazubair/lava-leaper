@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var LevelMusic = $LevelMusic
+@onready var LevelMusic = $"Terrain/LevelMusic"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

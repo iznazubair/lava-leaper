@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ckbl6cm5c6iut"]
 
-[ext_resource type="Script" path="res://MainMenu.gd" id="1_7mxnb"]
+[ext_resource type="Script" path="res://MenuScreens/MainMenu.gd" id="1_cqail"]
 [ext_resource type="Texture2D" uid="uid://ddsj8wav8jcr1" path="res://Art/Legacy-Fantasy - High Forest 2.3 2/Buttons/startButton.jpeg" id="2_dogud"]
 [ext_resource type="Texture2D" uid="uid://1yb3rjxsj22g" path="res://Background Images/1.jpg" id="2_p0yr5"]
 [ext_resource type="AudioStream" uid="uid://d2try3dxdmkm4" path="res://Background Music/Mushroom Theme.mp3" id="2_u4tfq"]
@@ -25,8 +25,7 @@ frame_5/texture = ExtResource("7_q1p3j")
 frame_5/duration = 1.0
 
 [node name="MainMenu" type="CanvasLayer"]
-process_mode = 1
-script = ExtResource("1_7mxnb")
+script = ExtResource("1_cqail")
 
 [node name="StartScreen" type="Node2D" parent="."]
 
@@ -89,18 +88,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="StartScreen"]
-offset_left = 31.0
-offset_top = 532.0
-offset_right = 418.0
-offset_bottom = 757.0
+offset_left = 44.0
+offset_top = 515.0
+offset_right = 431.0
+offset_bottom = 785.0
 theme_override_colors/font_color = Color(0.901961, 0.792157, 0.8, 1)
 theme_override_colors/font_shadow_color = Color(0.384314, 0.356863, 0.545098, 1)
 theme_override_font_sizes/font_size = 30
-text = "Game keys:
-'A' : forward move
-'B': backward move
-'W': jump and double jump
-'I': attack"
+text = "Game Keys:
+'A' : backward move
+'D': forward move
+'K': jump and double jump
+'O': attack
+'left & right': wall climb"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_StartButton_pressed"]
