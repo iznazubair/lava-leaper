@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://blbm8tq1lq3i1"]
+[gd_scene load_steps=13 format=3 uid="uid://blbm8tq1lq3i1"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_78q1q"]
 [ext_resource type="Script" path="res://main_bus.gd" id="1_5661r"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://oxxkubjwxc0s" path="res://UI/health_changed_manager.tscn" id="6_iepsf"]
 [ext_resource type="AudioStream" uid="uid://c6wpx6xtv4s7q" path="res://Background Music/level_background_music.mp3" id="7_ntveu"]
 [ext_resource type="AudioStream" uid="uid://c2d0ugnglg58v" path="res://Background Music/mixkit-player-jumping-in-a-video-game-2043.wav" id="8_5uusf"]
+[ext_resource type="Script" path="res://Levels/Lava.gd" id="9_gaq1v"]
+[ext_resource type="Texture2D" uid="uid://bq1oscd5eomd2" path="res://Background Images/Animated Lava Strip.png" id="10_wwb02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ricl"]
+size = Vector2(127.913, 40.7597)
 
 [node name="Main" type="Node2D"]
 process_mode = 3
@@ -31,7 +36,7 @@ drag_left_margin = 0.17
 drag_top_margin = 0.15
 drag_right_margin = 0.17
 
-[node name="Player" parent="Level1" instance=ExtResource("3_4jyse")]
+[node name="Player" parent="Level1" groups=["Player"] instance=ExtResource("3_4jyse")]
 position = Vector2(2.08165e-12, 155)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Level1/Player"]
@@ -59,14 +64,33 @@ position = Vector2(182, -397)
 
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="Level1"]
 stream = ExtResource("7_ntveu")
+volume_db = -55.962
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="Level1"]
 stream = ExtResource("8_5uusf")
 
-[node name="key" type="Area2D" parent="Level1"]
+[node name="Lava" type="Area2D" parent="Level1" node_paths=PackedStringArray("player") groups=["Lava"]]
+position = Vector2(1097, 240)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("9_gaq1v")
+player = NodePath("../Player")
+metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level1/key"]
+[node name="Sprite2D" type="Sprite2D" parent="Level1/Lava"]
+position = Vector2(-692.5, 658)
+scale = Vector2(23.4297, 59.5625)
+texture = ExtResource("10_wwb02")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/key"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/Lava"]
+position = Vector2(-692.5, 1134.5)
+scale = Vector2(23.43, 23.43)
+shape = SubResource("RectangleShape2D_7ricl")
+
+[node name="Timer" type="Timer" parent="Level1/Lava"]
 
 [node name="MainMenu" parent="." instance=ExtResource("5_jxvi6")]
+visible = false
+
+[connection signal="body_entered" from="Level1/Lava" to="Level1/Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Level1/Lava" to="Level1/Lava" method="_on_body_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=53 format=3 uid="uid://c0ck5dhdjafr2"]
+[gd_scene load_steps=56 format=3 uid="uid://c0ck5dhdjafr2"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_1ljid"]
+[ext_resource type="Texture2D" uid="uid://bytupenapek0d" path="res://Art/Legacy-Fantasy - High Forest 2.3 2/Character/Dead/Dead-Sheet.png" id="2_51sbj"]
 [ext_resource type="Texture2D" uid="uid://cy3hrxjkfg46w" path="res://Art/Legacy-Fantasy - High Forest 2.3 2/Character/Idle/Idle-Sheet.png" id="2_esdym"]
 [ext_resource type="Texture2D" uid="uid://dkmksv1tf1sh7" path="res://Art/Legacy-Fantasy - High Forest 2.3 2/Character/wall-stick.png" id="2_gusax"]
 [ext_resource type="Texture2D" uid="uid://1ajym4dq8si6" path="res://Art/Legacy-Fantasy - High Forest 2.3 2/Character/Attack-01/Attack-01-Sheet.png" id="2_kepv2"]
@@ -381,11 +382,51 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_so45w"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_51sbj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a3xpn"]
 _data = {
 "RESET": SubResource("Animation_apsyd"),
 "attack1": SubResource("Animation_rq40g"),
 "attack2": SubResource("Animation_wgbwa"),
+"dead": SubResource("Animation_so45w"),
 "double_jump": SubResource("Animation_vyej2"),
 "idle": SubResource("Animation_erlfs"),
 "jump_end": SubResource("Animation_eywrd"),
@@ -404,7 +445,10 @@ animation = &"attack1"
 animation = &"attack2"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s0ml6"]
-animation = &"double_jump"
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_of6ph"]
+animation = &"dead"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6xfn0"]
 animation = &"double_jump"
@@ -473,12 +517,14 @@ states/attack1/node = SubResource("AnimationNodeAnimation_6fs58")
 states/attack1/position = Vector2(335.246, 177.707)
 states/attack2/node = SubResource("AnimationNodeAnimation_akbr1")
 states/attack2/position = Vector2(474.992, 179.207)
+states/dead/node = SubResource("AnimationNodeAnimation_of6ph")
+states/dead/position = Vector2(630.1, 177.881)
+"states/dead 2/node" = SubResource("AnimationNodeAnimation_s0ml6")
+"states/dead 2/position" = Vector2(459.45, 568.101)
 states/double_jump/node = SubResource("AnimationNodeAnimation_6xfn0")
 states/double_jump/position = Vector2(528.828, 21.1587)
-"states/double_jump 2/node" = SubResource("AnimationNodeAnimation_s0ml6")
-"states/double_jump 2/position" = Vector2(756.8, 194.325)
 states/jump_end/node = SubResource("AnimationNodeAnimation_rl24u")
-states/jump_end/position = Vector2(528.702, 98.4032)
+states/jump_end/position = Vector2(528.765, 99.8004)
 states/jump_start/node = SubResource("AnimationNodeAnimation_ey0bn")
 states/jump_start/position = Vector2(334.375, 22)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_leh4e")
@@ -486,26 +532,26 @@ states/move/position = Vector2(335.028, 100.188)
 states/wall_stick/node = SubResource("AnimationNodeAnimation_53apn")
 states/wall_stick/position = Vector2(113.4, 5.07938)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_tiy6d"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_g5w7l"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_omsog"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_ykhm7"), "jump_start", "double_jump", SubResource("AnimationNodeStateMachineTransition_8bogv"), "double_jump", "jump_end", SubResource("AnimationNodeStateMachineTransition_hrhxd"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_x4a73"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_yrdev"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_v7g84"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_5tddw"), "wall_stick", "move", SubResource("AnimationNodeStateMachineTransition_n3o7g"), "wall_stick", "jump_start", SubResource("AnimationNodeStateMachineTransition_a66c5")]
-graph_offset = Vector2(25.7998, -30.1801)
+graph_offset = Vector2(116.1, 20.4375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpkd4"]
 size = Vector2(26, 49)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("game_over_timer")]
 position = Vector2(7, -4)
 collision_layer = 2
 script = ExtResource("1_1ljid")
+game_over_timer = NodePath("Game Over Timer")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sfk54")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_esdym")
-hframes = 4
+texture = ExtResource("2_51sbj")
+hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-speed_scale = 0.4
 libraries = {
 "": SubResource("AnimationLibrary_a3xpn")
 }
@@ -586,6 +632,9 @@ facing_right_position = Vector2(27, 2.08165e-12)
 rotation = -1.5708
 target_position = Vector2(2.08165e-12, 9)
 collision_mask = 8
+
+[node name="Game Over Timer" type="Timer" parent="."]
+wait_time = 5.0
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
