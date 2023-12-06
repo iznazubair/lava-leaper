@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blbm8tq1lq3i1"]
+[gd_scene load_steps=9 format=3 uid="uid://blbm8tq1lq3i1"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_78q1q"]
 [ext_resource type="PackedScene" uid="uid://bwxcdrfxj1vic" path="res://Levels/Terrain.tscn" id="1_bfcux"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://oxxkubjwxc0s" path="res://UI/health_changed_manager.tscn" id="6_iepsf"]
 [ext_resource type="AudioStream" uid="uid://c6wpx6xtv4s7q" path="res://Background Music/level_background_music.mp3" id="7_ntveu"]
 [ext_resource type="AudioStream" uid="uid://c2d0ugnglg58v" path="res://Background Music/mixkit-player-jumping-in-a-video-game-2043.wav" id="8_5uusf"]
+[ext_resource type="PackedScene" uid="uid://lvip4ulojh3d" path="res://Levels/coin.tscn" id="8_vc073"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_78q1q")
@@ -58,8 +59,78 @@ position = Vector2(182, -397)
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_5uusf")
 
-[node name="Level1@key" type="Area2D" parent="."]
+[node name="coin" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(303, 114)
 
-[node name="Level1@key@AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="coin2" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(749, 33)
 
-[node name="Level1@key@CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="coin3" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(-45, -413)
+
+[node name="coin4" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(378, -337)
+
+[node name="coin5" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(790, -185)
+
+[node name="coin6" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(1068, -252)
+
+[node name="coin7" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(981, -102)
+
+[node name="coin8" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(1045, -551)
+
+[node name="coin9" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(223, -494)
+
+[node name="coin11" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(541, -832)
+
+[node name="coin12" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(1039, -847)
+
+[node name="coin13" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(-72, -826)
+
+[node name="coin14" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(762, -616)
+
+[node name="coin15" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(546, -705)
+
+[node name="coin10" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(-140, 143)
+
+[node name="Panel" type="Control" parent="."]
+visible = false
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -613.0
+offset_top = -477.0
+offset_right = -410.0
+offset_bottom = -356.0
+
+[node name="Label2" type="Label" parent="Panel"]
+offset_left = 126.0
+offset_top = 19.0
+offset_right = 166.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0.682353, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel"]
+offset_left = 35.0
+offset_top = 22.0
+offset_right = 130.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.678431, 0.0392157, 0.0392157, 1)
+theme_override_font_sizes/font_size = 30
+text = "Coins: "
+vertical_alignment = 1

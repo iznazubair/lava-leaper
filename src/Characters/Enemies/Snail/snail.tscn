@@ -134,6 +134,7 @@ transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(94.4475, 23.82)
 
 [node name="Snail" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
+z_index = 2
 position = Vector2(28, 93)
 collision_layer = 4
 script = ExtResource("1_4u55k")
