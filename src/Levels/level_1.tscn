@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://blbm8tq1lq3i1"]
+[gd_scene load_steps=12 format=3 uid="uid://blbm8tq1lq3i1"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_78q1q"]
 [ext_resource type="PackedScene" uid="uid://bwxcdrfxj1vic" path="res://Levels/Terrain.tscn" id="1_bfcux"]
@@ -7,7 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://oxxkubjwxc0s" path="res://UI/health_changed_manager.tscn" id="6_iepsf"]
 [ext_resource type="AudioStream" uid="uid://c6wpx6xtv4s7q" path="res://Background Music/level_background_music.mp3" id="7_ntveu"]
 [ext_resource type="AudioStream" uid="uid://c2d0ugnglg58v" path="res://Background Music/mixkit-player-jumping-in-a-video-game-2043.wav" id="8_5uusf"]
-[ext_resource type="PackedScene" uid="uid://lvip4ulojh3d" path="res://Levels/coin.tscn" id="8_vc073"]
+[ext_resource type="PackedScene" path="res://Levels/coin.tscn" id="8_vc073"]
+[ext_resource type="Script" path="res://Levels/Lava.gd" id="9_gaq1v"]
+[ext_resource type="Texture2D" uid="uid://bq1oscd5eomd2" path="res://Background Images/Animated Lava Strip.png" id="10_wwb02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ricl"]
+size = Vector2(127.913, 40.7597)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_78q1q")
@@ -30,7 +35,7 @@ drag_right_margin = 0.17
 stream = ExtResource("7_ntveu")
 volume_db = -15.848
 
-[node name="Player" parent="." instance=ExtResource("3_4jyse")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_4jyse")]
 position = Vector2(2.08165e-12, 155)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -58,6 +63,26 @@ position = Vector2(182, -397)
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_5uusf")
+
+[node name="Lava" type="Area2D" parent="." node_paths=PackedStringArray("player") groups=["Lava"]]
+position = Vector2(1097, 240)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("9_gaq1v")
+player = NodePath("../Player")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Lava"]
+position = Vector2(-692.5, 658)
+scale = Vector2(23.4297, 59.5625)
+texture = ExtResource("10_wwb02")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
+position = Vector2(-692.5, 1134.5)
+scale = Vector2(23.43, 23.43)
+shape = SubResource("RectangleShape2D_7ricl")
+
+[node name="Timer" type="Timer" parent="Lava"]
 
 [node name="coin" parent="." instance=ExtResource("8_vc073")]
 position = Vector2(303, 114)
@@ -115,6 +140,7 @@ offset_right = -410.0
 offset_bottom = -356.0
 
 [node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 19.0
 offset_right = 166.0
@@ -126,6 +152,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 35.0
 offset_top = 22.0
 offset_right = 130.0
@@ -134,3 +161,5 @@ theme_override_colors/font_color = Color(0.678431, 0.0392157, 0.0392157, 1)
 theme_override_font_sizes/font_size = 30
 text = "Coins: "
 vertical_alignment = 1
+
+[connection signal="body_entered" from="Lava" to="Lava" method="_on_body_entered"]
