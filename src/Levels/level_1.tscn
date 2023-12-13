@@ -22,7 +22,7 @@ script = ExtResource("1_78q1q")
 position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Terrain"]
-position = Vector2(2.08165e-12, 155)
+position = Vector2(98, 26)
 offset = Vector2(100, -200)
 process_callback = 0
 position_smoothing_enabled = true
@@ -38,7 +38,7 @@ volume_db = -15.848
 autoplay = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_4jyse")]
-position = Vector2(2.08165e-12, 155)
+position = Vector2(98, 26)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Terrain/Camera2D")
@@ -46,10 +46,10 @@ remote_path = NodePath("../../Terrain/Camera2D")
 [node name="HealthChangedManager" parent="." instance=ExtResource("6_iepsf")]
 
 [node name="Snail" parent="." instance=ExtResource("5_xqfyk")]
-position = Vector2(138, 164)
+position = Vector2(219, 112)
 
 [node name="Snail2" parent="." instance=ExtResource("5_xqfyk")]
-position = Vector2(1024, -28)
+position = Vector2(1071, 12)
 
 [node name="Snail3" parent="." instance=ExtResource("5_xqfyk")]
 position = Vector2(258, -812)
@@ -86,11 +86,26 @@ shape = SubResource("RectangleShape2D_7ricl")
 
 [node name="Timer" type="Timer" parent="Lava"]
 
+[node name="coin16" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(585, 69)
+
+[node name="coin18" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(282, -124)
+
+[node name="coin17" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(282, -14)
+
 [node name="coin" parent="." instance=ExtResource("8_vc073")]
 position = Vector2(303, 114)
 
+[node name="coin20" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(607, -311)
+
+[node name="coin19" parent="." instance=ExtResource("8_vc073")]
+position = Vector2(503, -289)
+
 [node name="coin2" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(749, 33)
+position = Vector2(702, 54)
 
 [node name="coin3" parent="." instance=ExtResource("8_vc073")]
 position = Vector2(-45, -413)
@@ -105,7 +120,7 @@ position = Vector2(790, -185)
 position = Vector2(1068, -252)
 
 [node name="coin7" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(981, -102)
+position = Vector2(1003, -107)
 
 [node name="coin8" parent="." instance=ExtResource("8_vc073")]
 position = Vector2(1045, -551)
@@ -117,7 +132,7 @@ position = Vector2(223, -494)
 position = Vector2(541, -832)
 
 [node name="coin12" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(1039, -847)
+position = Vector2(854, -839)
 
 [node name="coin13" parent="." instance=ExtResource("8_vc073")]
 position = Vector2(-72, -826)

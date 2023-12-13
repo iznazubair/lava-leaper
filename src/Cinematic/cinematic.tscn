@@ -316,6 +316,7 @@ _data = {
 }
 
 [node name="Cinematic" type="Node2D"]
+visible = false
 script = ExtResource("1_4j0jw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
