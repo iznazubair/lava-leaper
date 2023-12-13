@@ -6,7 +6,7 @@ class_name main_menu
 @onready var StartScreenMusic : AudioStreamPlayer2D = $StartScreen/StartScreenMusic
 
 func _ready():
-	StartScreenMusic.play()
+	pass
 	
 func update_points(points: int):
 	pass

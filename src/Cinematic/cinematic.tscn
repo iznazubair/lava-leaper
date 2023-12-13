@@ -1,0 +1,417 @@
+[gd_scene load_steps=17 format=3 uid="uid://c2pxq8t218qx0"]
+
+[ext_resource type="Script" path="res://Cinematic/cinematic.gd" id="1_4j0jw"]
+[ext_resource type="Texture2D" uid="uid://bebnq3dlywlij" path="res://Art/Nature Landscapes Free Pixel Art/nature_3/orig.png" id="1_jbma8"]
+[ext_resource type="Texture2D" uid="uid://l7nlspncqkgm" path="res://Art/Nature Landscapes Free Pixel Art/nature_1/2.png" id="3_tymgn"]
+[ext_resource type="AudioStream" uid="uid://dk21qqqyn4y1u" path="res://Background Music/scene1_background_sound.wav" id="4_qexbb"]
+[ext_resource type="AudioStream" uid="uid://cky200gcidbeh" path="res://Background Music/story_voiceover.mp3" id="5_hg54a"]
+[ext_resource type="Texture2D" uid="uid://cf5cyn074ggs" path="res://Art/Nature Landscapes Free Pixel Art/Mountain_Morning_1.jpg" id="6_rptm3"]
+[ext_resource type="AudioStream" uid="uid://6jl0i1t2scsb" path="res://Background Music/mixkit-cinematic-room-tone-3080.wav" id="7_3xrq8"]
+[ext_resource type="Texture2D" uid="uid://cfg4054u15j86" path="res://Art/Nature Landscapes Free Pixel Art/Mountain_Morning_4.jpg" id="8_34caa"]
+[ext_resource type="Texture2D" uid="uid://cxdyobitj472o" path="res://Art/Nature Landscapes Free Pixel Art/shine.png" id="9_fhv8h"]
+[ext_resource type="Texture2D" uid="uid://pfj4q3i54sbq" path="res://Art/coin/chests-03.png" id="10_yo4l4"]
+[ext_resource type="Texture2D" uid="uid://ouu1kaopjhm" path="res://Art/Nature Landscapes Free Pixel Art/Mountain_Afternoon_7.jpg" id="11_8ggy6"]
+[ext_resource type="Texture2D" uid="uid://ifb37upncnjs" path="res://Art/Nature Landscapes Free Pixel Art/eruption.png" id="12_2j3io"]
+[ext_resource type="AudioStream" uid="uid://be7ivx3h86c46" path="res://Background Music/mixkit-erupting-volcano-lava-2442.wav" id="13_pm61d"]
+
+[sub_resource type="Animation" id="Animation_44ml1"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ocx4j"]
+resource_name = "StartingStory"
+length = 66.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scene1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scene1/Cloud1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.3, 1.6, 1.9, 2.3, 2.6, 2.9, 3.3, 3.7, 4, 4.3, 4.6, 4.9, 5.2, 5.5, 5.8, 6.1, 6.4, 6.7, 7, 7.3, 7.6, 7.9, 8.2, 8.5, 8.8, 9.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(307, 349), Vector2(331, 349), Vector2(361, 349), Vector2(389, 349), Vector2(450, 349), Vector2(481, 349), Vector2(519, 349), Vector2(549, 349), Vector2(602, 349), Vector2(661, 349), Vector2(702, 349), Vector2(745, 349), Vector2(788, 349), Vector2(844, 349), Vector2(891, 349), Vector2(923, 349), Vector2(961, 349), Vector2(1021, 349), Vector2(1074, 349), Vector2(1126, 349), Vector2(1169, 349), Vector2(1229, 349), Vector2(1281, 349), Vector2(1346, 349), Vector2(1404, 349), Vector2(1460, 349), Vector2(1512, 349), Vector2(1567, 349), Vector2(1623, 349), Vector2(1666, 349), Vector2(1714, 349), Vector2(1757, 349)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scene1/MountainBackground:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.63021, 3.12654), Vector2(2.86458, 3.50926), Vector2(2.98958, 3.68827)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scene1/Cloud2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.1, 3.4, 3.7, 4, 4.3, 4.6, 4.9, 5.2, 5.5, 5.8, 6.1, 6.4, 6.7, 7, 7.3, 7.6, 7.9, 8.2, 8.5, 8.8, 9, 9.3, 9.6, 9.9, 10.2, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1430, 434), Vector2(1403, 434), Vector2(1364, 434), Vector2(1331, 434), Vector2(1293, 434), Vector2(1249, 434), Vector2(1210, 434), Vector2(1169, 434), Vector2(1128, 434), Vector2(1100, 434), Vector2(1070, 434), Vector2(1042, 434), Vector2(1001, 434), Vector2(947, 434), Vector2(898, 434), Vector2(844, 434), Vector2(804, 434), Vector2(757, 434), Vector2(714, 434), Vector2(672, 434), Vector2(634, 434), Vector2(598, 434), Vector2(562, 434), Vector2(522, 434), Vector2(487, 434), Vector2(444, 434), Vector2(397, 434), Vector2(343, 434), Vector2(298, 434), Vector2(261, 434), Vector2(241, 434), Vector2(169, 434), Vector2(108, 434), Vector2(54.0002, 434), Vector2(-2.99985, 434), Vector2(-124, 434)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene1/Cloud3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 5.7, 6, 6.3, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(617, 95), Vector2(663, 95), Vector2(723, 95), Vector2(780, 95), Vector2(833, 95), Vector2(886, 95), Vector2(935, 95), Vector2(980, 95), Vector2(1036, 95), Vector2(1075, 95), Vector2(1122, 95), Vector2(1163, 95), Vector2(1198, 95), Vector2(1239, 95), Vector2(1290, 95), Vector2(1357, 95), Vector2(1433, 95), Vector2(1488, 95), Vector2(1550, 95), Vector2(1611, 95), Vector2(1673, 95), Vector2(1714, 95), Vector2(1781, 95)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 13, 18),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SuspenseSound:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 4.324]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NatureBackgroundSounds:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Scene3:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 18, 31.1, 38.7, 43.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Scene2/MountainMorningImage1:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(13, 13.9, 14.8, 15.4, 16.1, 16.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(963, 495), Vector2(834, 495), Vector2(723, 495), Vector2(662, 495), Vector2(592, 495), Vector2(541, 495)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Scene3/MountainMorningImage2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(18, 18.5, 19.1, 19.6, 20.1, 20.6, 21.1, 38.7, 39.4, 40.2, 41, 41.7, 42.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(560, 502), Vector2(655, 502), Vector2(742, 502), Vector2(823, 502), Vector2(868, 502), Vector2(922, 502), Vector2(947, 502), Vector2(947, 502), Vector2(893, 502), Vector2(814, 502), Vector2(772, 502), Vector2(700, 502), Vector2(611, 502)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Scene3/Shine:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(21.1, 21.9, 22.7, 23.6, 24.4, 25.1, 25.9, 26.6, 27.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.446809, 0.43617), Vector2(0.670213, 0.622339), Vector2(1.07447, 0.984042), Vector2(1.96808, 1.81383), Vector2(3.14894, 2.89362), Vector2(2.61702, 2.29787), Vector2(1.97872, 1.70213), Vector2(1.46809, 1.25532), Vector2(0.978724, 0.872342)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Scene3/Shine:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.1, 21.1, 27.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Scene3/Chest:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 27.7, 31.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Scene3/Chest:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(27.7, 28.7, 29.7, 30.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.0263529, 0.0275945), Vector2(0.030695, 0.0314937), Vector2(0.0381344, 0.0383923), Vector2(0.0434365, 0.044991)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Scene4:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 31.1, 38.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Scene4/MountainAfternoonImage:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(31.1, 31.9, 32.7, 33.5, 34.3, 35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(487, 497), Vector2(553, 497), Vector2(613, 497), Vector2(701, 497), Vector2(785, 497), Vector2(829, 497)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Scene4/MountainAfternoonImage:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(35, 35.9, 36.9, 37.8, 38.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.4082, 1.21034), Vector2(1.70247, 1.77163), Vector2(1.96159, 2.20793), Vector2(2.19629, 2.52584), Vector2(2.57601, 3.10547)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Scene5:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 43.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Scene5/Eruption:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(43.2, 45.4, 46.5, 47.4, 48.3, 49.2, 50.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(748, 499), Vector2(705, 509.5), Vector2(768, 509.5), Vector2(722, 509.5), Vector2(770, 509.5), Vector2(730, 509.5), Vector2(765, 509.5)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Scene5/Eruption:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(43.2, 44.2, 45.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.14583, 1), Vector2(1.32083, 1.17192), Vector2(1.44583, 1.35148)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Scene5/Shine2:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(53.5, 54.7, 55.9, 57.2, 58.5, 59.7, 61, 62.3, 63.5, 64.8, 65.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4.62766, 4.04255), Vector2(12.5957, 10.0638), Vector2(17.3191, 13.8723), Vector2(21.8511, 16.9787), Vector2(23.6383, 18.3617), Vector2(27.4894, 21.4681), Vector2(31.8085, 25.2553), Vector2(38.7447, 29.8298), Vector2(46.5745, 35.9149), Vector2(56.8723, 43.8298), Vector2(66.1702, 50.0426)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Scene5/Shine2:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 53.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("VolcanoEruptionSound:volume_db")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 50.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -10.306]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0exk"]
+_data = {
+"RESET": SubResource("Animation_44ml1"),
+"StartingStory": SubResource("Animation_ocx4j")
+}
+
+[node name="Cinematic" type="Node2D"]
+script = ExtResource("1_4j0jw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s0exk")
+}
+
+[node name="Scene1" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MountainBackground" type="Sprite2D" parent="Scene1"]
+position = Vector2(757, 508.5)
+scale = Vector2(2.98958, 3.68827)
+texture = ExtResource("1_jbma8")
+
+[node name="Cloud1" type="Sprite2D" parent="Scene1"]
+position = Vector2(1757, 349)
+scale = Vector2(0.742188, 0.722222)
+texture = ExtResource("3_tymgn")
+
+[node name="Cloud2" type="Sprite2D" parent="Scene1"]
+position = Vector2(-124, 434)
+scale = Vector2(0.489583, 0.552469)
+texture = ExtResource("3_tymgn")
+
+[node name="Cloud3" type="Sprite2D" parent="Scene1"]
+position = Vector2(1781, 95)
+texture = ExtResource("3_tymgn")
+
+[node name="NatureBackgroundSounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qexbb")
+volume_db = -80.0
+autoplay = true
+area_mask = 64
+
+[node name="StoryVoiceover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hg54a")
+volume_db = 1.753
+autoplay = true
+
+[node name="SuspenseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_3xrq8")
+volume_db = 4.324
+autoplay = true
+
+[node name="VolcanoEruptionSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -3.05176e-05)
+stream = ExtResource("13_pm61d")
+autoplay = true
+
+[node name="Scene2" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MountainMorningImage1" type="Sprite2D" parent="Scene2"]
+position = Vector2(541, 495)
+scale = Vector2(1.26237, 1.23077)
+texture = ExtResource("6_rptm3")
+
+[node name="Scene3" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MountainMorningImage2" type="Sprite2D" parent="Scene3"]
+position = Vector2(611, 502)
+scale = Vector2(1.23503, 1.23798)
+texture = ExtResource("8_34caa")
+
+[node name="Shine" type="Sprite2D" parent="Scene3"]
+visible = false
+position = Vector2(489, 912.5)
+scale = Vector2(0.978724, 0.872342)
+texture = ExtResource("9_fhv8h")
+
+[node name="Chest" type="Sprite2D" parent="Scene3"]
+visible = false
+position = Vector2(485.5, 917)
+scale = Vector2(0.0434365, 0.044991)
+texture = ExtResource("10_yo4l4")
+
+[node name="Scene4" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MountainAfternoonImage" type="Sprite2D" parent="Scene4"]
+position = Vector2(829, 497)
+scale = Vector2(2.57601, 3.10547)
+texture = ExtResource("11_8ggy6")
+
+[node name="Scene5" type="CanvasLayer" parent="."]
+
+[node name="Eruption" type="Sprite2D" parent="Scene5"]
+position = Vector2(765, 509.5)
+scale = Vector2(1.44583, 1.35148)
+texture = ExtResource("12_2j3io")
+
+[node name="Shine2" type="Sprite2D" parent="Scene5"]
+position = Vector2(738, 485)
+scale = Vector2(66.1702, 50.0426)
+texture = ExtResource("9_fhv8h")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
