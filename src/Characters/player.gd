@@ -18,10 +18,18 @@ var direction : Vector2 = Vector2.ZERO
 var coins = 0
 
 var near_lava : bool = false
+var isTakingDamage : bool = false
 var lava_speed = 0  # Variable to store the lava speed
 
+#var max_hearts : int = 2
+#var hearts : float = max_hearts
+
+var health = 30
 
 signal facing_direction_changed(facing_right : bool)
+signal life_changed(player_hearts)
+
+
 
 func _ready():
 	position = starting_pos
@@ -32,30 +40,26 @@ func _ready():
 func _physics_process(delta):
 	if dead:
 		game_over()
-		
-	# Check for collision with lava
-#	if is_near_lava():
-#		# Move the player along with the lava's movement
-#		position.y -= 50 * delta
 
-	# Add the gravity. 
-	if not is_on_floor():
-		if state_machine.current_state is AirState:
-			velocity.y += gravity * delta
-		elif state_machine.current_state is WallState:
-			velocity.y = clamp(velocity.y + gravity * delta, -270, 100)
+	# Add the gravity.
+	else: 
+		if not is_on_floor():
+			if state_machine.current_state is AirState:
+				velocity.y += gravity * delta
+			elif state_machine.current_state is WallState:
+				velocity.y = clamp(velocity.y + gravity * delta, -270, 100)
 
-		
-	# Get the input direction and handle the movement/deceleration.
-	direction = Input.get_vector("left", "right", "up", "down")
-	if direction.x != 0 && state_machine.check_if_can_move():
-		velocity.x = direction.x * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+			
+		# Get the input direction and handle the movement/deceleration.
+		direction = Input.get_vector("left", "right", "up", "down")
+		if direction.x != 0 && state_machine.check_if_can_move():
+			velocity.x = direction.x * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 
-	move_and_slide()
-	update_animation_parameters()
-	update_facing_direction()
+		move_and_slide()
+		update_animation_parameters()
+		update_facing_direction()
 	
 
 func is_near_wall():
@@ -78,14 +82,10 @@ func add_coin():
 	coins += 1
 
 func game_over():
-	# Start the 5-second timer
-	# game_over_timer.wait_time = 5
-	# game_over_timer.start()
 	state_machine.current_state.can_move = false
 	
 	await get_tree().create_timer(5.0).timeout
 	queue_free()
-
 	# Reload the current scene
 	get_tree().reload_current_scene()
 

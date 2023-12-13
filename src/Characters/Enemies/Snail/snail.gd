@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SLOWSPEED = 100.0
 @onready var animation_tree : AnimationTree = $AnimationTree
 
 @export var starting_move_direction : Vector2 = Vector2.LEFT
@@ -43,3 +43,13 @@ func _on_flip_timer_timeout():
 	starting_move_direction.x *= -1  # Flip the direction
 	scale.x *= -1
 	flip_timer.start()  # Restart the timer
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group('Player'):
+		body.speed = SLOWSPEED
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group('Player'):
+		body.speed = 250

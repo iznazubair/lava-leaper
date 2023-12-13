@@ -24,7 +24,6 @@ func _process(delta):
 func _on_body_entered(body):
 	print("lava touching player")
 	if body.is_in_group("Player"):
-#		emit_signal("player_near_lava", body)
 		emit_signal("player_near_lava", move_speed)
 	
 	playback = body.animation_tree["parameters/playback"]

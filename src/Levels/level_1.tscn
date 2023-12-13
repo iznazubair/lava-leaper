@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://blbm8tq1lq3i1"]
+[gd_scene load_steps=13 format=3 uid="uid://blbm8tq1lq3i1"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_78q1q"]
 [ext_resource type="PackedScene" uid="uid://bwxcdrfxj1vic" path="res://Levels/Terrain.tscn" id="1_bfcux"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" path="res://Levels/coin.tscn" id="8_vc073"]
 [ext_resource type="Script" path="res://Levels/Lava.gd" id="9_gaq1v"]
 [ext_resource type="Texture2D" uid="uid://bq1oscd5eomd2" path="res://Background Images/Animated Lava Strip.png" id="10_wwb02"]
+[ext_resource type="PackedScene" uid="uid://dd0mi7xl1v8vu" path="res://Characters/Enemies/Bee/bee.tscn" id="12_udl8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ricl"]
 size = Vector2(127.913, 40.7597)
@@ -42,10 +43,10 @@ position = Vector2(2.08165e-12, 155)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Terrain/Camera2D")
 
+[node name="HealthChangedManager" parent="." instance=ExtResource("6_iepsf")]
+
 [node name="Snail" parent="." instance=ExtResource("5_xqfyk")]
 position = Vector2(138, 164)
-
-[node name="HealthChangedManager" parent="." instance=ExtResource("6_iepsf")]
 
 [node name="Snail2" parent="." instance=ExtResource("5_xqfyk")]
 position = Vector2(1024, -28)
@@ -162,5 +163,13 @@ theme_override_colors/font_color = Color(0.678431, 0.0392157, 0.0392157, 1)
 theme_override_font_sizes/font_size = 30
 text = "Coins: "
 vertical_alignment = 1
+
+[node name="Bee" parent="." instance=ExtResource("12_udl8v")]
+position = Vector2(395, -23)
+
+[node name="Bee2" parent="." instance=ExtResource("12_udl8v")]
+position = Vector2(604, -23)
+
+[node name="Node2D" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_body_entered"]
