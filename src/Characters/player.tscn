@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://c0ck5dhdjafr2"]
+[gd_scene load_steps=57 format=3 uid="uid://c0ck5dhdjafr2"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_1ljid"]
 [ext_resource type="Texture2D" uid="uid://bytupenapek0d" path="res://Art/Legacy-Fantasy - High Forest 2.3 2/Character/Dead/Dead-Sheet.png" id="2_51sbj"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Characters/StateDebugLabel.gd" id="12_6pant"]
 [ext_resource type="Script" path="res://Characters/Sword.gd" id="12_ebleo"]
 [ext_resource type="Script" path="res://Characters/FacingCollisionShape2D.gd" id="13_j88fu"]
+[ext_resource type="Script" path="res://Characters/State.gd" id="14_gmbfs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfk54"]
 radius = 8.0
@@ -605,6 +606,9 @@ one_shot = true
 script = ExtResource("11_22q6l")
 ground_state = NodePath("../Ground")
 air_state = NodePath("../Air")
+
+[node name="Dead" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("14_gmbfs")
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -44.0
