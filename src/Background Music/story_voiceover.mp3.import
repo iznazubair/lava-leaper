@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cky200gcidbeh"
+path="res://.godot/imported/story_voiceover.mp3-3ef2015987bdba8c4ac0cdb6d54d8a81.mp3str"
+
+[deps]
+
+source_file="res://Background Music/story_voiceover.mp3"
+dest_files=["res://.godot/imported/story_voiceover.mp3-3ef2015987bdba8c4ac0cdb6d54d8a81.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

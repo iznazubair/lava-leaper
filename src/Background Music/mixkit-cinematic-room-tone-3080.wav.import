@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6jl0i1t2scsb"
+path="res://.godot/imported/mixkit-cinematic-room-tone-3080.wav-647f58a9508594be8a22def7eb2fa738.sample"
+
+[deps]
+
+source_file="res://Background Music/mixkit-cinematic-room-tone-3080.wav"
+dest_files=["res://.godot/imported/mixkit-cinematic-room-tone-3080.wav-647f58a9508594be8a22def7eb2fa738.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

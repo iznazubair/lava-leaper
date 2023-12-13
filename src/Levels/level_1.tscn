@@ -34,6 +34,7 @@ drag_right_margin = 0.17
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="Terrain"]
 stream = ExtResource("7_ntveu")
 volume_db = -15.848
+autoplay = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_4jyse")]
 position = Vector2(2.08165e-12, 155)

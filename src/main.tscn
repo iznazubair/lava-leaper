@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq2uge1caggjs"]
+[gd_scene load_steps=5 format=3 uid="uid://cq2uge1caggjs"]
 
 [ext_resource type="Script" path="res://main_bus.gd" id="1_koem1"]
+[ext_resource type="PackedScene" uid="uid://c2pxq8t218qx0" path="res://Cinematic/cinematic.tscn" id="2_6gdfj"]
 [ext_resource type="PackedScene" uid="uid://ckbl6cm5c6iut" path="res://MenuScreens/main_menu.tscn" id="2_gbaak"]
 [ext_resource type="PackedScene" uid="uid://blbm8tq1lq3i1" path="res://Levels/level_1.tscn" id="3_tmure"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_koem1")
+
+[node name="Cinematic" parent="." instance=ExtResource("2_6gdfj")]
 
 [node name="MainMenu" parent="." instance=ExtResource("2_gbaak")]
 
