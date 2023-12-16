@@ -80,7 +80,7 @@ func update_facing_direction():
 	
 func add_coin():
 	coins += 1
-	if coins >= 2:
+	if coins >= 10:
 		if get_tree().current_scene.scene_file_path == "res://Levels/level_1.tscn":
 			get_tree().change_scene_to_file("res://MenuScreens/main_level_2.tscn")
 		elif get_tree().current_scene.scene_file_path == "res://Levels/level_2.tscn":

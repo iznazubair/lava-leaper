@@ -108,7 +108,7 @@ offset_top = 102.0
 offset_right = 288.0
 offset_bottom = 154.0
 text = "- Three enemy hits kill the player
-- Collect 6 coins to start next level"
+- Collect 10 coins to start next level"
 
 [node name="Node2D" type="Node2D" parent="."]
 

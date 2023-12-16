@@ -139,7 +139,7 @@ offset_top = 98.0
 offset_right = 294.0
 offset_bottom = 150.0
 text = "- Three enemy hits kill the player
-- Collect 6 coins to start next level"
+- Collect 10 coins to start next level"
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("8_nh6b4")]
 
