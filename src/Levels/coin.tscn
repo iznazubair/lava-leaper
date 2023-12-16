@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://lvip4ulojh3d"]
+[gd_scene load_steps=9 format=3 uid="uid://uat8l7bwpbu7"]
 
 [ext_resource type="Script" path="res://Levels/coin.gd" id="1_6xbld"]
 [ext_resource type="Texture2D" uid="uid://cj7to54668vpp" path="res://Art/coin/gold_1.png" id="2_bj86i"]

@@ -15,7 +15,7 @@ var starting_pos : Vector2 = Vector2(0,155)
 var dead : bool = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
-var coins = 0
+@export var coins = 0
 
 var near_lava : bool = false
 var isTakingDamage : bool = false
@@ -80,6 +80,11 @@ func update_facing_direction():
 	
 func add_coin():
 	coins += 1
+	if coins >= 6:
+		if get_tree().current_scene.scene_file_path == "res://Levels/level_1.tscn":
+			get_tree().change_scene_to_file("res://MenuScreens/main_level_2.tscn")
+		elif get_tree().current_scene.scene_file_path == "res://Levels/level_2.tscn":
+			get_tree().change_scene_to_file("res://MenuScreens/main_level_3.tscn")
 
 func game_over():
 	state_machine.current_state.can_move = false
