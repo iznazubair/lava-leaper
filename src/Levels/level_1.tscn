@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://c2d0ugnglg58v" path="res://Background Music/mixkit-player-jumping-in-a-video-game-2043.wav" id="8_5uusf"]
 [ext_resource type="PackedScene" uid="uid://uat8l7bwpbu7" path="res://Levels/coin.tscn" id="8_vc073"]
 [ext_resource type="Script" path="res://Levels/Lava.gd" id="9_gaq1v"]
-[ext_resource type="Texture2D" path="res://Background Images/Animated Lava Strip.png" id="10_wwb02"]
+[ext_resource type="Texture2D" uid="uid://bq1oscd5eomd2" path="res://Background Images/Animated Lava Strip.png" id="10_wwb02"]
 [ext_resource type="Script" path="res://Levels/HUD.gd" id="11_a7eyk"]
 [ext_resource type="Texture2D" uid="uid://cj7to54668vpp" path="res://Art/coin/gold_1.png" id="12_ee8pq"]
 

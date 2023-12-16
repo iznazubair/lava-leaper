@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cj7to54668vpp" path="res://Art/coin/gold_1.png" id="7_cc762"]
 [ext_resource type="PackedScene" uid="uid://oxxkubjwxc0s" path="res://UI/health_changed_manager.tscn" id="8_nh6b4"]
 [ext_resource type="Script" path="res://Levels/Lava.gd" id="9_fbohp"]
-[ext_resource type="Texture2D" path="res://Background Images/Animated Lava Strip.png" id="10_2ro3t"]
+[ext_resource type="Texture2D" uid="uid://bq1oscd5eomd2" path="res://Background Images/Animated Lava Strip.png" id="10_2ro3t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p30kh"]
 bg_color = Color(0, 0, 0, 0.278431)

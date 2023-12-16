@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cj7to54668vpp" path="res://Art/coin/gold_1.png" id="6_5mogm"]
 [ext_resource type="PackedScene" uid="uid://oxxkubjwxc0s" path="res://UI/health_changed_manager.tscn" id="7_ql3hs"]
 [ext_resource type="Script" path="res://Levels/Lava.gd" id="8_dql23"]
-[ext_resource type="Texture2D" path="res://Background Images/Animated Lava Strip.png" id="9_k8plo"]
+[ext_resource type="Texture2D" uid="uid://bq1oscd5eomd2" path="res://Background Images/Animated Lava Strip.png" id="9_k8plo"]
 [ext_resource type="PackedScene" uid="uid://uat8l7bwpbu7" path="res://Levels/coin.tscn" id="10_q7bmb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyd8e"]
