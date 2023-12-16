@@ -1,19 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://blbm8tq1lq3i1"]
+[gd_scene load_steps=14 format=3 uid="uid://blbm8tq1lq3i1"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_78q1q"]
 [ext_resource type="PackedScene" uid="uid://bwxcdrfxj1vic" path="res://Levels/Terrain.tscn" id="1_bfcux"]
 [ext_resource type="PackedScene" uid="uid://c0ck5dhdjafr2" path="res://Characters/player.tscn" id="3_4jyse"]
 [ext_resource type="PackedScene" uid="uid://dh8d4w10roy0u" path="res://Characters/Enemies/Snail/snail.tscn" id="5_xqfyk"]
 [ext_resource type="PackedScene" uid="uid://oxxkubjwxc0s" path="res://UI/health_changed_manager.tscn" id="6_iepsf"]
-[ext_resource type="AudioStream" uid="uid://c6wpx6xtv4s7q" path="res://Background Music/level_background_music.mp3" id="7_ntveu"]
 [ext_resource type="AudioStream" uid="uid://c2d0ugnglg58v" path="res://Background Music/mixkit-player-jumping-in-a-video-game-2043.wav" id="8_5uusf"]
-[ext_resource type="PackedScene" path="res://Levels/coin.tscn" id="8_vc073"]
+[ext_resource type="PackedScene" uid="uid://uat8l7bwpbu7" path="res://Levels/coin.tscn" id="8_vc073"]
 [ext_resource type="Script" path="res://Levels/Lava.gd" id="9_gaq1v"]
 [ext_resource type="Texture2D" uid="uid://bq1oscd5eomd2" path="res://Background Images/Animated Lava Strip.png" id="10_wwb02"]
-[ext_resource type="PackedScene" uid="uid://dd0mi7xl1v8vu" path="res://Characters/Enemies/Bee/bee.tscn" id="12_udl8v"]
+[ext_resource type="Script" path="res://Levels/HUD.gd" id="11_a7eyk"]
+[ext_resource type="Texture2D" uid="uid://cj7to54668vpp" path="res://Art/coin/gold_1.png" id="12_ee8pq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ricl"]
 size = Vector2(127.913, 40.7597)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6rxr"]
+bg_color = Color(0, 0, 0, 0.278431)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_78q1q")
@@ -21,35 +28,16 @@ script = ExtResource("1_78q1q")
 [node name="Terrain" parent="." instance=ExtResource("1_bfcux")]
 position = Vector2(0, 0)
 
-[node name="Camera2D" type="Camera2D" parent="Terrain"]
-position = Vector2(2.08165e-12, 155)
-offset = Vector2(100, -200)
-process_callback = 0
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.17
-drag_top_margin = 0.15
-drag_right_margin = 0.17
-
-[node name="LevelMusic" type="AudioStreamPlayer2D" parent="Terrain"]
-stream = ExtResource("7_ntveu")
-volume_db = -15.848
-autoplay = true
-
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_4jyse")]
-position = Vector2(2.08165e-12, 155)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Terrain/Camera2D")
+position = Vector2(-42, 153)
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("6_iepsf")]
 
 [node name="Snail" parent="." instance=ExtResource("5_xqfyk")]
-position = Vector2(138, 164)
+position = Vector2(196, 159)
 
 [node name="Snail2" parent="." instance=ExtResource("5_xqfyk")]
-position = Vector2(1024, -28)
+position = Vector2(1044, -37)
 
 [node name="Snail3" parent="." instance=ExtResource("5_xqfyk")]
 position = Vector2(258, -812)
@@ -67,6 +55,7 @@ position = Vector2(182, -397)
 stream = ExtResource("8_5uusf")
 
 [node name="Lava" type="Area2D" parent="." node_paths=PackedStringArray("player") groups=["Lava"]]
+z_index = 4
 position = Vector2(1097, 240)
 collision_layer = 16
 collision_mask = 2
@@ -86,90 +75,121 @@ shape = SubResource("RectangleShape2D_7ricl")
 
 [node name="Timer" type="Timer" parent="Lava"]
 
-[node name="coin" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(303, 114)
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("11_a7eyk")
 
-[node name="coin2" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(749, 33)
+[node name="Panel" type="Panel" parent="HUD"]
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 310.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g6rxr")
 
-[node name="coin3" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(-45, -413)
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+offset_left = 77.0
+offset_top = 38.0
+offset_right = 119.0
+offset_bottom = 78.0
+texture = ExtResource("12_ee8pq")
+expand_mode = 1
 
-[node name="coin4" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(378, -337)
-
-[node name="coin5" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(790, -185)
-
-[node name="coin6" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(1068, -252)
-
-[node name="coin7" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(981, -102)
-
-[node name="coin8" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(1045, -551)
-
-[node name="coin9" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(223, -494)
-
-[node name="coin11" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(541, -832)
-
-[node name="coin12" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(1039, -847)
-
-[node name="coin13" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(-72, -826)
-
-[node name="coin14" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(762, -616)
-
-[node name="coin15" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(546, -705)
-
-[node name="coin10" parent="." instance=ExtResource("8_vc073")]
-position = Vector2(-140, 143)
-
-[node name="Panel" type="Control" parent="."]
-visible = false
-clip_contents = true
-layout_mode = 3
-anchors_preset = 0
-offset_left = -613.0
-offset_top = -477.0
-offset_right = -410.0
-offset_bottom = -356.0
-
-[node name="Label2" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 126.0
-offset_top = 19.0
-offset_right = 166.0
-offset_bottom = 79.0
-theme_override_colors/font_color = Color(0.682353, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "0"
+[node name="CoinCount" type="Label" parent="HUD"]
+offset_left = 176.0
+offset_top = 27.0
+offset_right = 246.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 22.0
-offset_right = 130.0
-offset_bottom = 72.0
-theme_override_colors/font_color = Color(0.678431, 0.0392157, 0.0392157, 1)
-theme_override_font_sizes/font_size = 30
-text = "Coins: "
-vertical_alignment = 1
-
-[node name="Bee" parent="." instance=ExtResource("12_udl8v")]
-position = Vector2(395, -23)
-
-[node name="Bee2" parent="." instance=ExtResource("12_udl8v")]
-position = Vector2(604, -23)
+[node name="Label" type="Label" parent="HUD"]
+offset_left = 29.0
+offset_top = 102.0
+offset_right = 288.0
+offset_bottom = 154.0
+text = "- Three enemy hits kill the player
+- Collect 10 coins to start next level"
 
 [node name="Node2D" type="Node2D" parent="."]
 
+[node name="coin16" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(498, 70)
+
+[node name="coin18" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(282, -124)
+
+[node name="coin17" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(282, -14)
+
+[node name="coin" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(303, 114)
+
+[node name="coin20" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(607, -311)
+
+[node name="coin19" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(503, -289)
+
+[node name="coin2" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(702, 54)
+
+[node name="coin3" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(-45, -413)
+
+[node name="coin4" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(378, -337)
+
+[node name="coin5" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(858, -153)
+
+[node name="coin6" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(1068, -252)
+
+[node name="coin7" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(1003, -107)
+
+[node name="coin8" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(1045, -551)
+
+[node name="coin9" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(223, -494)
+
+[node name="coin11" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(1089, -52)
+
+[node name="coin12" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(854, -839)
+
+[node name="coin13" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(-72, -826)
+
+[node name="coin14" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(762, -616)
+
+[node name="coin15" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(546, -705)
+
+[node name="coin10" parent="Node2D" instance=ExtResource("8_vc073")]
+position = Vector2(-140, 143)
+
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_body_entered"]
+[connection signal="coin_collected" from="Node2D/coin16" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin18" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin17" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin20" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin19" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin2" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin3" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin4" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin5" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin6" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin7" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin8" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin9" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin11" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin12" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin13" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin14" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin15" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Node2D/coin10" to="HUD" method="_on_coin_collected"]

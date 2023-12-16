@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3cmlswkf200r"]
+
+[ext_resource type="AudioStream" uid="uid://d2try3dxdmkm4" path="res://Background Music/Mushroom Theme.mp3" id="1_8325h"]
+[ext_resource type="Texture2D" uid="uid://1yb3rjxsj22g" path="res://Background Images/1.jpg" id="2_6yrka"]
+[ext_resource type="Texture2D" uid="uid://cm8nqahgd3uxr" path="res://Background Images/2.jpg" id="3_w2n8k"]
+[ext_resource type="Texture2D" uid="uid://0cdos45r56ou" path="res://Background Images/3.jpg" id="4_grjgl"]
+[ext_resource type="Texture2D" uid="uid://cqnsxh0dyqr8p" path="res://Background Images/4.jpg" id="5_wi6xh"]
+[ext_resource type="Texture2D" uid="uid://cr41nsfc18le3" path="res://Background Images/5.jpg" id="6_y2d1u"]
+[ext_resource type="Texture2D" uid="uid://cxvi6aqecwoc2" path="res://Background Images/6.jpg" id="7_gx5kg"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_qy57l"]
+frames = 6
+frame_0/texture = ExtResource("2_6yrka")
+frame_1/texture = ExtResource("3_w2n8k")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_grjgl")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_wi6xh")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_y2d1u")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("7_gx5kg")
+frame_5/duration = 1.0
+
+[node name="MainEnd" type="CanvasLayer"]
+
+[node name="StartScreen" type="Node2D" parent="."]
+light_mask = 128
+visibility_layer = 128
+
+[node name="StartScreenMusic" type="AudioStreamPlayer2D" parent="StartScreen"]
+stream = ExtResource("1_8325h")
+autoplay = true
+area_mask = 128
+
+[node name="TextureRect" type="TextureRect" parent="StartScreen"]
+show_behind_parent = true
+light_mask = 128
+visibility_layer = 128
+offset_left = -37.0
+offset_top = -39.0
+offset_right = 1510.0
+offset_bottom = 1016.0
+texture = SubResource("AnimatedTexture_qy57l")
+
+[node name="Label2" type="Label" parent="StartScreen"]
+light_mask = 128
+visibility_layer = 128
+offset_left = 430.0
+offset_top = 164.0
+offset_right = 1038.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0.882353, 0.329412, 0.290196, 1)
+theme_override_colors/font_shadow_color = Color(0.117647, 0.380392, 0.435294, 1)
+theme_override_font_sizes/font_size = 90
+text = "You Won!"
+horizontal_alignment = 1
+vertical_alignment = 1

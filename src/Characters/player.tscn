@@ -533,7 +533,7 @@ states/move/position = Vector2(335.028, 100.188)
 states/wall_stick/node = SubResource("AnimationNodeAnimation_53apn")
 states/wall_stick/position = Vector2(113.4, 5.07938)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_tiy6d"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_g5w7l"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_omsog"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_ykhm7"), "jump_start", "double_jump", SubResource("AnimationNodeStateMachineTransition_8bogv"), "double_jump", "jump_end", SubResource("AnimationNodeStateMachineTransition_hrhxd"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_x4a73"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_yrdev"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_v7g84"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_5tddw"), "wall_stick", "move", SubResource("AnimationNodeStateMachineTransition_n3o7g"), "wall_stick", "jump_start", SubResource("AnimationNodeStateMachineTransition_a66c5")]
-graph_offset = Vector2(116.1, 20.4375)
+graph_offset = Vector2(77.4, -3.3825)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpkd4"]
 size = Vector2(26, 49)
@@ -640,6 +640,19 @@ collision_mask = 8
 
 [node name="Game Over Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(100, -200)
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.17
+drag_top_margin = 0.15
+drag_right_margin = 0.17
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Camera2D")
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]

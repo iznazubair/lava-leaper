@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://q1038eecepmr"]
+
+[ext_resource type="AudioStream" uid="uid://d2try3dxdmkm4" path="res://Background Music/Mushroom Theme.mp3" id="1_058yn"]
+[ext_resource type="Script" path="res://MenuScreens/main_level_2.gd" id="1_nncon"]
+[ext_resource type="Texture2D" uid="uid://1yb3rjxsj22g" path="res://Background Images/1.jpg" id="2_upjla"]
+[ext_resource type="Texture2D" uid="uid://cm8nqahgd3uxr" path="res://Background Images/2.jpg" id="3_hy3pl"]
+[ext_resource type="Texture2D" uid="uid://0cdos45r56ou" path="res://Background Images/3.jpg" id="4_mpcrk"]
+[ext_resource type="Texture2D" uid="uid://cqnsxh0dyqr8p" path="res://Background Images/4.jpg" id="5_e7u1y"]
+[ext_resource type="Texture2D" uid="uid://cr41nsfc18le3" path="res://Background Images/5.jpg" id="6_wcvgx"]
+[ext_resource type="Texture2D" uid="uid://cxvi6aqecwoc2" path="res://Background Images/6.jpg" id="7_jqgo3"]
+[ext_resource type="Texture2D" uid="uid://ddsj8wav8jcr1" path="res://Art/Legacy-Fantasy - High Forest 2.3 2/Buttons/startButton.jpeg" id="8_nfcku"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_h3geg"]
+frames = 6
+frame_0/texture = ExtResource("2_upjla")
+frame_1/texture = ExtResource("3_hy3pl")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_mpcrk")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_e7u1y")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_wcvgx")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("7_jqgo3")
+frame_5/duration = 1.0
+
+[node name="MainLevel2" type="CanvasLayer"]
+script = ExtResource("1_nncon")
+
+[node name="StartScreen" type="Node2D" parent="."]
+light_mask = 128
+visibility_layer = 128
+
+[node name="StartScreenMusic" type="AudioStreamPlayer2D" parent="StartScreen"]
+stream = ExtResource("1_058yn")
+autoplay = true
+area_mask = 128
+
+[node name="TextureRect" type="TextureRect" parent="StartScreen"]
+show_behind_parent = true
+light_mask = 128
+visibility_layer = 128
+offset_left = -37.0
+offset_top = -39.0
+offset_right = 1510.0
+offset_bottom = 1016.0
+texture = SubResource("AnimatedTexture_h3geg")
+
+[node name="StartButton" type="Button" parent="StartScreen"]
+light_mask = 128
+visibility_layer = 128
+anchors_preset = -1
+anchor_left = -0.044
+anchor_top = -0.006
+anchor_right = 0.046
+anchor_bottom = 0.012
+offset_left = 661.0
+offset_top = 652.0
+offset_right = 780.0
+offset_bottom = 704.0
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StartScreen/StartButton"]
+light_mask = 128
+visibility_layer = 128
+position = Vector2(59, 32)
+scale = Vector2(2.93939, 2.1875)
+texture = ExtResource("8_nfcku")
+
+[node name="Label3" type="Label" parent="StartScreen/StartButton"]
+light_mask = 128
+visibility_layer = 128
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.403714
+anchor_top = -0.0399405
+anchor_right = 0.504381
+anchor_bottom = -0.0269405
+offset_left = -57.042
+offset_top = 3.07691
+offset_right = 61.9579
+offset_bottom = 54.0769
+theme_override_font_sizes/font_size = 20
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="StartScreen"]
+light_mask = 128
+visibility_layer = 128
+offset_left = 385.0
+offset_top = 100.0
+offset_right = 1105.0
+offset_bottom = 354.0
+theme_override_colors/font_color = Color(0.882353, 0.329412, 0.290196, 1)
+theme_override_colors/font_shadow_color = Color(0.117647, 0.380392, 0.435294, 1)
+theme_override_font_sizes/font_size = 90
+text = "Congratulations!
+Level 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="StartScreen"]
+light_mask = 128
+visibility_layer = 128
+offset_left = 30.0
+offset_top = 632.0
+offset_right = 471.0
+offset_bottom = 944.0
+theme_override_colors/font_color = Color(0.901961, 0.792157, 0.8, 1)
+theme_override_colors/font_shadow_color = Color(0.384314, 0.356863, 0.545098, 1)
+theme_override_font_sizes/font_size = 35
+text = "Game Keys:
+'A' : backward move
+'D': forward move
+'K': jump and double jump
+'O': attack
+'left & right': wall climb"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_start_button_pressed"]

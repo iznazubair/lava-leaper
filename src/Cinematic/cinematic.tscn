@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2pxq8t218qx0"]
+[gd_scene load_steps=18 format=3 uid="uid://c2pxq8t218qx0"]
 
 [ext_resource type="Script" path="res://Cinematic/cinematic.gd" id="1_4j0jw"]
 [ext_resource type="Texture2D" uid="uid://bebnq3dlywlij" path="res://Art/Nature Landscapes Free Pixel Art/nature_3/orig.png" id="1_jbma8"]
@@ -114,7 +114,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 13),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -80.0]
+"values": [14.522, -80.0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -315,6 +315,13 @@ _data = {
 "StartingStory": SubResource("Animation_ocx4j")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwi4e"]
+bg_color = Color(0, 0, 0, 0.278431)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="Cinematic" type="Node2D"]
 script = ExtResource("1_4j0jw")
 
@@ -324,30 +331,29 @@ libraries = {
 }
 
 [node name="Scene1" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="MountainBackground" type="Sprite2D" parent="Scene1"]
 position = Vector2(757, 508.5)
-scale = Vector2(2.98958, 3.68827)
+scale = Vector2(2.63021, 3.12654)
 texture = ExtResource("1_jbma8")
 
 [node name="Cloud1" type="Sprite2D" parent="Scene1"]
-position = Vector2(1757, 349)
+position = Vector2(307, 349)
 scale = Vector2(0.742188, 0.722222)
 texture = ExtResource("3_tymgn")
 
 [node name="Cloud2" type="Sprite2D" parent="Scene1"]
-position = Vector2(-124, 434)
+position = Vector2(1430, 434)
 scale = Vector2(0.489583, 0.552469)
 texture = ExtResource("3_tymgn")
 
 [node name="Cloud3" type="Sprite2D" parent="Scene1"]
-position = Vector2(1781, 95)
+position = Vector2(617, 95)
 texture = ExtResource("3_tymgn")
 
 [node name="NatureBackgroundSounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_qexbb")
-volume_db = -80.0
+volume_db = 14.522
 autoplay = true
 area_mask = 64
 
@@ -358,19 +364,20 @@ autoplay = true
 
 [node name="SuspenseSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_3xrq8")
-volume_db = 4.324
+volume_db = -80.0
 autoplay = true
 
 [node name="VolcanoEruptionSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -3.05176e-05)
 stream = ExtResource("13_pm61d")
+volume_db = -80.0
 autoplay = true
 
 [node name="Scene2" type="CanvasLayer" parent="."]
 visible = false
 
 [node name="MountainMorningImage1" type="Sprite2D" parent="Scene2"]
-position = Vector2(541, 495)
+position = Vector2(963, 495)
 scale = Vector2(1.26237, 1.23077)
 texture = ExtResource("6_rptm3")
 
@@ -378,40 +385,61 @@ texture = ExtResource("6_rptm3")
 visible = false
 
 [node name="MountainMorningImage2" type="Sprite2D" parent="Scene3"]
-position = Vector2(611, 502)
+position = Vector2(560, 502)
 scale = Vector2(1.23503, 1.23798)
 texture = ExtResource("8_34caa")
 
 [node name="Shine" type="Sprite2D" parent="Scene3"]
 visible = false
 position = Vector2(489, 912.5)
-scale = Vector2(0.978724, 0.872342)
+scale = Vector2(0.446809, 0.43617)
 texture = ExtResource("9_fhv8h")
 
 [node name="Chest" type="Sprite2D" parent="Scene3"]
 visible = false
 position = Vector2(485.5, 917)
-scale = Vector2(0.0434365, 0.044991)
+scale = Vector2(0.0263529, 0.0275945)
 texture = ExtResource("10_yo4l4")
 
 [node name="Scene4" type="CanvasLayer" parent="."]
 visible = false
 
 [node name="MountainAfternoonImage" type="Sprite2D" parent="Scene4"]
-position = Vector2(829, 497)
-scale = Vector2(2.57601, 3.10547)
+position = Vector2(487, 497)
+scale = Vector2(1.4082, 1.21034)
 texture = ExtResource("11_8ggy6")
 
 [node name="Scene5" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Eruption" type="Sprite2D" parent="Scene5"]
-position = Vector2(765, 509.5)
-scale = Vector2(1.44583, 1.35148)
+position = Vector2(748, 499)
+scale = Vector2(1.14583, 1)
 texture = ExtResource("12_2j3io")
 
 [node name="Shine2" type="Sprite2D" parent="Scene5"]
+visible = false
 position = Vector2(738, 485)
-scale = Vector2(66.1702, 50.0426)
+scale = Vector2(4.62766, 4.04255)
 texture = ExtResource("9_fhv8h")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="HUD"]
+offset_left = 1176.0
+offset_top = 37.0
+offset_right = 1465.0
+offset_bottom = 109.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nwi4e")
+
+[node name="Label" type="Label" parent="HUD"]
+offset_left = 1195.0
+offset_top = 48.0
+offset_right = 1454.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 30
+text = "Click to skip >"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
